@@ -14,8 +14,10 @@ export class HeaderComponent {
   public subcategorias: Subcategoria[] = [];
   public subcategoriaSeleccionada: Subcategoria = {} as Subcategoria;
   public subcategoriaSeleccionadaExiste: boolean = false;
+  @Output() eventoBuscarProducto = new EventEmitter<string>();
   @Output() eventoFiltrarPorSubcategoria = new EventEmitter<number>();
   @Output() eventoOrdenarPorPrecio = new EventEmitter<string>();
+  public productoBuscado: string = '';
   public orden: string = '';
 
   constructor(private categoriaService: CategoriaService,
@@ -26,6 +28,12 @@ export class HeaderComponent {
   public obtenerSubcategorias(idCategoria: number): void {
       this.subcategorias = [];
       this.subcategoriaService.obtenerPorCategoria(idCategoria).subscribe(subcategorias => this.subcategorias = subcategorias);
+  }
+
+  public buscarProducto(event: any): void {
+    if ((event.key === 'Enter' || event.keyCode == 13) && (this.productoBuscado.length >= 3 || this.productoBuscado.length == 0)) {
+      this.eventoBuscarProducto.emit(this.productoBuscado);
+    }
   }
 
   public seleccionarSubcategoria(idCategoria: number): void {

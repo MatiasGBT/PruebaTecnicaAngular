@@ -8,7 +8,7 @@
     <div class="botones-header">
         <mat-form-field appearance="outline" class="input-buscar" subscriptSizing="dynamic">
             <mat-label>Buscar</mat-label>
-            <input matInput placeholder="Teclado Mecanico Marvo KG945 RGB">
+            <input matInput [(ngModel)]="productoBuscado" placeholder="Teclado Mecanico Marvo KG945 RGB" (keyup)="buscarProducto($event)">
             <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
 

@@ -26,4 +26,11 @@ export class ProductoService {
       catchError(ex => throwError(() => ex))
     );
   }
+
+  public obtenerPorNombre(nombre: string): Observable<Producto[]> {
+    return this.http.get<Producto[]>(API_URL).pipe(
+      map(response => response.filter(producto => producto.nombre.toLowerCase().includes(nombre.toLowerCase()))),
+      catchError(ex => throwError(() => ex))
+    );
+  }
 }

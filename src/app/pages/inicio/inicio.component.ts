@@ -14,10 +14,31 @@ export class InicioComponent implements OnInit {
   constructor(private productoService: ProductoService) { }
 
   ngOnInit(): void {
+    this.obtenerProductosDestacados();
+  }
+
+  private obtenerProductosDestacados(): void {
     this.productoService.obtenerDestacados().subscribe(productos => {
       this.productos = productos;
       this.productosCargados = true;
     });
+  }
+
+  public buscarProducto(nombreProducto: string): void {
+    if (nombreProducto.trim() === '') {
+      this.obtenerProductosDestacados();
+    } else {
+      this.obtenerProductosPorNombre(nombreProducto);
+    }
+  }
+
+  private obtenerProductosPorNombre(nombreProducto: string): void {
+    this.productos = [];
+    this.productosCargados = false;
+    this.productoService.obtenerPorNombre(nombreProducto).subscribe(productos => {
+      this.productos = productos;
+      this.productosCargados = true;
+    })
   }
 
   public filtrarProductos(idSubcategoria: number): void {
