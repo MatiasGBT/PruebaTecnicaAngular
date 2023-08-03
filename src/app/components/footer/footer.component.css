@@ -1,0 +1,47 @@
+footer {
+    background: var(--primary-color);
+    width: 100%;
+    padding: 15px;
+    box-shadow: 0 -2px 2px 1px rgba(0, 0, 0, 0.2);
+    font-size: .75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#company-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#company-data img {
+    width: 40px;
+    height: 40px;
+}
+
+#company-data p, footer p {
+    color: white;
+    font-family: 'Roboto';
+}
+
+@media (min-width: 768px) {
+    footer {
+        padding: 25px;
+        font-size: 1rem;
+        justify-content: space-around;
+    }
+
+    #company-data img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (min-width: 1038px) {
+    #company-data img {
+        width: 80px;
+        height: 80px;
+    }
+}
