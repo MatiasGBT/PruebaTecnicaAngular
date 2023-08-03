@@ -1,0 +1,17 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+$compra-gamer-primary: mat.define-palette(mat.$orange, 800);
+$compra-gamer-accent: mat.define-palette(mat.$orange, 500);
+$compra-gamer-warn: mat.define-palette(mat.$red-palette);
+
+$compra-gamer-theme: mat.define-light-theme((
+  color: (
+    primary: $compra-gamer-primary,
+    accent: $compra-gamer-accent,
+    warn: $compra-gamer-warn,
+  )
+));
+
+@include mat.all-component-themes($compra-gamer-theme);
+
