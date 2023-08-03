@@ -39,9 +39,9 @@
             </mat-expansion-panel>
         </mat-accordion>
 
-        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" class="botones-precio">
-            <mat-button-toggle value="menor">Precio <mat-icon>arrow_downward</mat-icon></mat-button-toggle>
-            <mat-button-toggle value="mayor">Precio <mat-icon>arrow_upward</mat-icon></mat-button-toggle>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" class="botones-precio" [(ngModel)]="orden">
+            <mat-button-toggle value="menor" (click)="ordenarProductos()">Precio <mat-icon>arrow_downward</mat-icon></mat-button-toggle>
+            <mat-button-toggle value="mayor" (click)="ordenarProductos()">Precio <mat-icon>arrow_upward</mat-icon></mat-button-toggle>
         </mat-button-toggle-group>
     </div>
 </header>

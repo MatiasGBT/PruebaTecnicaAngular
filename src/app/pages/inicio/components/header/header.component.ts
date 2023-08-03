@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Categoria } from 'src/app/models/categoria';
 import { Subcategoria } from 'src/app/models/subcategoria';
 import { CategoriaService } from 'src/app/services/categoria.service';
@@ -14,6 +14,8 @@ export class HeaderComponent {
   public subcategorias: Subcategoria[] = [];
   public subcategoriaSeleccionada: Subcategoria = {} as Subcategoria;
   public subcategoriaSeleccionadaExiste: boolean = false;
+  @Output() eventoOrdenarPorPrecio = new EventEmitter<string>();
+  public orden: string = '';
 
   constructor(private categoriaService: CategoriaService,
     private subcategoriaService: SubcategoriaService) {
@@ -32,6 +34,10 @@ export class HeaderComponent {
         this.subcategoriaSeleccionadaExiste = true;
       }
     });
+  }
+
+  public ordenarProductos(): void {
+    this.eventoOrdenarPorPrecio.emit(this.orden);
   }
 
 }

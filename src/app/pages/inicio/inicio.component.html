@@ -1,5 +1,5 @@
 <section>
-    <inicio-header></inicio-header>
+    <inicio-header (eventoOrdenarPorPrecio)="ordenarProductos($event)"></inicio-header>
     
     <div class="productos">
         <producto *ngFor="let producto of productos" [producto]="producto"></producto>

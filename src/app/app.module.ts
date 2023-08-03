@@ -20,6 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { registerLocaleData } from '@angular/common';
 import localeEsAr from '@angular/common/locales/es-AR';
+import { FormsModule } from '@angular/forms';
 
 registerLocaleData(localeEsAr, 'es-AR');
 
@@ -44,7 +45,8 @@ registerLocaleData(localeEsAr, 'es-AR');
     NgOptimizedImage,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    FormsModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'es-AR' },
