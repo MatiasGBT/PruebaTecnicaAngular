@@ -1,0 +1,49 @@
+<header>
+    <img *ngIf="subcategoriaSeleccionadaExiste"
+        [src]="'https://compragamer.net/categorias_demo/' + subcategoriaSeleccionada.imagen"
+        alt="Portada de los productos destacados">
+    <img *ngIf="!subcategoriaSeleccionadaExiste" ngSrc="../../../../../assets/imagenes/subcategoria_default.webp"
+        [alt]="'Portada de ' + subcategoriaSeleccionada.nombre" width="1200" height="160" priority>
+
+    <div class="botones-header">
+        <mat-form-field appearance="outline" class="input-buscar" subscriptSizing="dynamic">
+            <mat-label>Buscar</mat-label>
+            <input matInput placeholder="Teclado Mecanico Marvo KG945 RGB">
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+
+        <mat-accordion class="acordeon">
+            <mat-expansion-panel class="acordeon-panel">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Categorías
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div matExpansionPanelContent>
+                    <mat-accordion>
+                        <mat-expansion-panel [expanded]="false" *ngFor="let categoria of categorias">
+                            <mat-expansion-panel-header (click)="obtenerSubcategorias(categoria.id_categoria)">
+                                <mat-panel-title>
+                                    {{categoria.nombre}}
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ng-template matExpansionPanelContent>
+                                <mat-spinner *ngIf="subcategorias.length == 0"></mat-spinner>
+                                <button *ngFor="let subcategoria of subcategorias" type="button"
+                                    [attr.aria-label]="subcategoria.nombre" class="boton-subcategoria"
+                                    (click)="seleccionarSubcategoria(subcategoria.id)">
+                                    {{subcategoria.nombre}}
+                                </button>
+                            </ng-template>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" class="botones-precio">
+            <mat-button-toggle value="menor">Precio <mat-icon>arrow_downward</mat-icon></mat-button-toggle>
+            <mat-button-toggle value="mayor">Precio <mat-icon>arrow_upward</mat-icon></mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+</header>
