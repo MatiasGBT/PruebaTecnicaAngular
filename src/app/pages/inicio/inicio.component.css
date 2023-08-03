@@ -1,5 +1,6 @@
 section {
     padding: 75px 15px 15px 15px;
+    min-height: 90vh;
 }
 
 .productos {
@@ -11,7 +12,6 @@ section {
 @media (min-width: 768px) {
     section {
         padding: 105px 25px 25px 25px;
-        min-height: 90vh;
     }
 
     .productos {

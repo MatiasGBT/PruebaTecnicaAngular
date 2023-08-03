@@ -8,6 +8,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -15,7 +16,7 @@ describe('HeaderComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule, MatFormFieldModule, MatExpansionModule, MatButtonToggleModule, MatIconModule, BrowserAnimationsModule, MatInputModule ],
+      imports: [HttpClientModule, MatFormFieldModule, MatExpansionModule, MatButtonToggleModule, MatIconModule, BrowserAnimationsModule, MatInputModule, FormsModule],
       declarations: [HeaderComponent]
     });
     fixture = TestBed.createComponent(HeaderComponent);

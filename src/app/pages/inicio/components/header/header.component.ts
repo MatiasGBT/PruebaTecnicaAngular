@@ -14,6 +14,7 @@ export class HeaderComponent {
   public subcategorias: Subcategoria[] = [];
   public subcategoriaSeleccionada: Subcategoria = {} as Subcategoria;
   public subcategoriaSeleccionadaExiste: boolean = false;
+  @Output() eventoFiltrarPorSubcategoria = new EventEmitter<number>();
   @Output() eventoOrdenarPorPrecio = new EventEmitter<string>();
   public orden: string = '';
 
@@ -32,6 +33,7 @@ export class HeaderComponent {
       if (subcategoria) {
         this.subcategoriaSeleccionada = subcategoria;
         this.subcategoriaSeleccionadaExiste = true;
+        this.eventoFiltrarPorSubcategoria.emit(idCategoria);
       }
     });
   }

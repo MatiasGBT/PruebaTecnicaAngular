@@ -9,11 +9,24 @@ import { ProductoService } from 'src/app/services/producto.service';
 })
 export class InicioComponent implements OnInit {
   public productos: Producto[] = [];
+  public productosCargados: boolean = false;
 
   constructor(private productoService: ProductoService) { }
 
   ngOnInit(): void {
-    this.productoService.obtenerDestacados().subscribe(productos => this.productos = productos);
+    this.productoService.obtenerDestacados().subscribe(productos => {
+      this.productos = productos;
+      this.productosCargados = true;
+    });
+  }
+
+  public filtrarProductos(idSubcategoria: number): void {
+    this.productos = [];
+    this.productosCargados = false;
+    this.productoService.obtenerPorSubcategoria(idSubcategoria).subscribe(productos => {
+      this.productos = productos;
+      this.productosCargados = true;
+    });
   }
 
   public ordenarProductos(orden: string): void {

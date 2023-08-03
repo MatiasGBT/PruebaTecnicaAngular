@@ -1,6 +1,8 @@
 <section>
-    <inicio-header (eventoOrdenarPorPrecio)="ordenarProductos($event)"></inicio-header>
+    <inicio-header (eventoFiltrarPorSubcategoria)="filtrarProductos($event)" (eventoOrdenarPorPrecio)="ordenarProductos($event)"></inicio-header>
     
+    <mat-spinner *ngIf="productos.length == 0 && !productosCargados"></mat-spinner>
+    <p *ngIf="productos.length == 0 && productosCargados">Por el momento, no hay productos disponibles en esta categoría. Disculpe las molestias.</p>
     <div class="productos">
         <producto *ngFor="let producto of productos" [producto]="producto"></producto>
     </div>

@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { FormsModule } from '@angular/forms';
 
 describe('InicioComponent', () => {
   let component: InicioComponent;
@@ -16,7 +18,8 @@ describe('InicioComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule, MatFormFieldModule, MatExpansionModule, MatButtonToggleModule, MatIconModule, BrowserAnimationsModule, MatInputModule],
+      imports: [HttpClientModule, MatFormFieldModule, MatExpansionModule, MatButtonToggleModule,
+        MatIconModule, BrowserAnimationsModule, MatInputModule, MatProgressSpinnerModule, FormsModule],
       declarations: [InicioComponent, HeaderComponent]
     });
     fixture = TestBed.createComponent(InicioComponent);
