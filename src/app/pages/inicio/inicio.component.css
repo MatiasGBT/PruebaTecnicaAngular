@@ -2,12 +2,31 @@ section {
     padding: 75px 15px 15px 15px;
 }
 
+.productos {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+}
+
 @media (min-width: 768px) {
     section {
         padding: 105px 25px 25px 25px;
+        min-height: 90vh;
+    }
+
+    .productos {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
     }
 }
 
 @media (min-width: 1038px) {
-    
+    section {
+        height: auto;
+    }
+
+    .productos {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
 }

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subcategoria } from '../models/subcategoria';
 import { NotFoundError, Observable, catchError, map, of, throwError } from 'rxjs';
+import { Producto } from '../models/producto';
 
 const API_URL = 'https://static.compragamer.com/test/subcategorias.json';
 
@@ -12,6 +13,10 @@ export class SubcategoriaService {
   private subcategorias: Subcategoria[] = [];
 
   constructor(private http: HttpClient) { }
+
+  private obtenerTodos(): Observable<Subcategoria[]> {
+    return this.http.get<Subcategoria[]>(API_URL).pipe(catchError(ex => throwError(() => ex)));
+  }
 
   //Retorno el array de subcategorias de esta manera para evitar llamar al backend
   //cada que se abre un nuevo expandible de categoría en el template.
@@ -40,12 +45,9 @@ export class SubcategoriaService {
     return of(this.subcategorias).pipe(map(response => response.filter(subcategoria => subcategoria.id_agrupador == idCategoria)));
   }
 
-  public obtenerPorId(idSubcategoria: number): Subcategoria {
-    let subcategoria = this.subcategorias.find(subcategoria => subcategoria.id === idSubcategoria);
-    if (subcategoria) {
-      return subcategoria;
-    } else {
-      throw NotFoundError;
-    }
+  public obtenerPorId(idSubcategoria: number): Observable<Subcategoria | undefined> {
+    return this.obtenerTodos().pipe(
+      map((subcategorias: Subcategoria[]) => subcategorias.find(subcategoria => subcategoria.id === idSubcategoria))
+    );
   }
 }

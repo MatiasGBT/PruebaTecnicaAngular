@@ -1,4 +1,7 @@
 <section>
     <inicio-header></inicio-header>
-    <p>inicio works!</p>
+    
+    <div class="productos">
+        <producto *ngFor="let producto of productos" [producto]="producto"></producto>
+    </div>
 </section>

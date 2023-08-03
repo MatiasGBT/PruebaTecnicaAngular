@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Categoria } from 'src/app/models/categoria';
 import { Producto } from 'src/app/models/producto';
 import { ProductoService } from 'src/app/services/producto.service';
 
@@ -10,7 +9,6 @@ import { ProductoService } from 'src/app/services/producto.service';
 })
 export class InicioComponent implements OnInit {
   public productos: Producto[] = [];
-  public categorias: Categoria[] = [];
 
   constructor(private productoService: ProductoService) { }
 

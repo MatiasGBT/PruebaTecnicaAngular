@@ -59,7 +59,7 @@ header img {
     }
     
     .acordeon {
-        width: auto;
+        width: 300px;
     }
     
     .acordeon-panel {
@@ -78,5 +78,9 @@ header img {
 
     .botones-header {
         justify-content: flex-end;
+    }
+    
+    .acordeon {
+        width: 315px;
     }
 }

@@ -1,1 +1,15 @@
-<p>producto works!</p>
+<div class="producto">
+    <img *ngIf="producto.imagenes && producto.imagenes[0]"
+        [ngSrc]="'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_' + producto.imagenes[0].nombre + '-med.jpg'"
+        [alt]="'Imagen del producto: ' + producto.nombre" width="150" height="134">
+
+    <div class="informacion-producto">
+        <div class="nombre-categoria">
+            <p>{{producto.nombre}}</p>
+            <p class="subcategoria">{{subcategoria.nombre}}</p>
+        </div>
+    </div>
+    <p class="precio">{{producto.precio | currency:'ARS$'}}</p>
+
+    <button mat-flat-button color="primary"><mat-icon>add_shopping_cart</mat-icon> Agregar al carrito</button>
+</div>

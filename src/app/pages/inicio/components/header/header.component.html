@@ -19,25 +19,23 @@
                         Categorías
                     </mat-panel-title>
                 </mat-expansion-panel-header>
-                <div matExpansionPanelContent>
-                    <mat-accordion>
-                        <mat-expansion-panel [expanded]="false" *ngFor="let categoria of categorias">
-                            <mat-expansion-panel-header (click)="obtenerSubcategorias(categoria.id_categoria)">
-                                <mat-panel-title>
-                                    {{categoria.nombre}}
-                                </mat-panel-title>
-                            </mat-expansion-panel-header>
-                            <ng-template matExpansionPanelContent>
-                                <mat-spinner *ngIf="subcategorias.length == 0"></mat-spinner>
-                                <button *ngFor="let subcategoria of subcategorias" type="button"
-                                    [attr.aria-label]="subcategoria.nombre" class="boton-subcategoria"
-                                    (click)="seleccionarSubcategoria(subcategoria.id)">
-                                    {{subcategoria.nombre}}
-                                </button>
-                            </ng-template>
-                        </mat-expansion-panel>
-                    </mat-accordion>
-                </div>
+                <mat-accordion matExpansionPanelContent>
+                    <mat-expansion-panel [expanded]="false" *ngFor="let categoria of categorias">
+                        <mat-expansion-panel-header (click)="obtenerSubcategorias(categoria.id_categoria)">
+                            <mat-panel-title>
+                                {{categoria.nombre}}
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ng-template matExpansionPanelContent>
+                            <mat-spinner *ngIf="subcategorias.length == 0"></mat-spinner>
+                            <button *ngFor="let subcategoria of subcategorias" type="button"
+                                [attr.aria-label]="subcategoria.nombre" class="boton-subcategoria"
+                                (click)="seleccionarSubcategoria(subcategoria.id)">
+                                {{subcategoria.nombre}}
+                            </button>
+                        </ng-template>
+                    </mat-expansion-panel>
+                </mat-accordion>
             </mat-expansion-panel>
         </mat-accordion>
 

@@ -26,12 +26,12 @@ export class HeaderComponent {
   }
 
   public seleccionarSubcategoria(idCategoria: number): void {
-    try {
-      this.subcategoriaSeleccionada = this.subcategoriaService.obtenerPorId(idCategoria);
-      this.subcategoriaSeleccionadaExiste = true;
-    } catch (error) {
-      console.error(error);
-    }
+    this.subcategoriaService.obtenerPorId(idCategoria).subscribe(subcategoria => {
+      if (subcategoria) {
+        this.subcategoriaSeleccionada = subcategoria;
+        this.subcategoriaSeleccionadaExiste = true;
+      }
+    });
   }
 
 }
