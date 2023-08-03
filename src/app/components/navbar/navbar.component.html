@@ -1,0 +1,39 @@
+<nav>
+    <button id="boton-menu" type="button" aria-label="Menú" (click)="alternarMenu()">
+        <mat-icon aria-hidden="false" aria-label="Ícono del menú">
+            {{menuAbierto ? 'close' : 'menu'}}
+        </mat-icon>
+    </button>
+
+    <a [routerLink]="['/inicio']" aria-label="Home" id="logo">
+        <img src="../../../assets/imagenes/logo.webp" alt="Logo de Compra Gamer">
+    </a>
+
+    <ul #listaNav>
+        <li>
+            <a [routerLink]="['/inicio']" (click)="alternarMenu()">
+                <mat-icon aria-hidden="false" aria-label="Ícono de la página de inicio">home</mat-icon>
+                <p>Inicio</p>
+            </a>
+        </li>
+        <li>
+            <a [routerLink]="['/carrito']" (click)="alternarMenu()">
+                <mat-icon aria-hidden="false"
+                    aria-label="Ícono de la página del carrito de compras">shopping_cart</mat-icon>
+                <p>Carrito</p>
+            </a>
+        </li>
+        <li>
+            <a [routerLink]="['/registro']" (click)="alternarMenu()">
+                <mat-icon aria-hidden="false" aria-label="Ícono de la página para registrarse">person_add</mat-icon>
+                <p>Registrarse</p>
+            </a>
+        </li>
+        <li>
+            <a [routerLink]="['/logout']" (click)="alternarMenu()">
+                <mat-icon aria-hidden="false" aria-label="Ícono de la página para cerrar sesión">logout</mat-icon>
+                <p>Cerrar sesión</p>
+            </a>
+        </li>
+    </ul>
+</nav>

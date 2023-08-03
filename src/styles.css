@@ -10,3 +10,8 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+:root {
+    --primary-color: #fd611a;
+    --primary-gradient-color: #ff8f5c;
+}
