@@ -8,6 +8,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from './components/footer/footer.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MatMenuModule } from '@angular/material/menu';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
