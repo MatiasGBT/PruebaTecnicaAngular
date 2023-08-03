@@ -11,17 +11,13 @@ nav {
     z-index: 1000;
 }
 
-nav mat-icon {
-    font-size: 1.75rem;
-    color: white;
-}
-
 nav ul {
     display: none;
     list-style: none;
 }
 
-nav ul li a p {
+nav ul li a p,
+.menu-usuario span {
     font-family: 'Roboto';
 }
 
@@ -40,8 +36,12 @@ nav ul li a p {
     border: none;
     cursor: pointer;
     text-align: center;
-    min-width: 25px;
     position: absolute;
+}
+
+#boton-menu mat-icon {
+    font-size: 1.75rem;
+    color: white;
 }
 
 .menu-abierto {
@@ -61,7 +61,8 @@ nav ul li a p {
     box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-.menu-abierto li a {
+.menu-abierto li a,
+.menu-abierto .menu-usuario {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -72,13 +73,21 @@ nav ul li a p {
     margin-bottom: 15px;
 }
 
-.menu-abierto li a mat-icon {
-    font-size: 1.25rem;
-    min-width: 30px;
+.menu-abierto li a mat-icon,
+.menu-abierto .menu-usuario mat-icon {
+    font-size: 1.5rem;
 }
 
-.menu-abierto li a p {
+.menu-abierto li a p,
+.menu-abierto .menu-usuario span {
     font-size: 1rem;
+}
+
+.menu-usuario {
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
 }
 
 @media (min-width: 768px) {
@@ -92,12 +101,8 @@ nav ul li a p {
         height: 70px;
     }
 
-    nav mat-icon {
+    #boton-menu mat-icon {
         font-size: 2rem;
-    }
-
-    #boton-menu {
-        min-width: 28px;
     }
 
     .menu-abierto {
@@ -105,7 +110,8 @@ nav ul li a p {
         top: 80px;
     }
 
-    .menu-abierto li a p {
+    .menu-abierto li a p,
+    .menu-abierto .menu-usuario span {
         font-size: 1.25rem;
     }
 }
@@ -119,16 +125,12 @@ nav ul li a p {
         display: none;
     }
 
-    nav mat-icon {
-        font-size: 1.25rem;
-        color: white;
-    }
-
     nav ul {
         display: flex;
     }
 
-    nav ul li a {
+    nav ul li a,
+    .menu-usuario {
         margin-left: 15px;
         text-decoration: none;
         color: white;

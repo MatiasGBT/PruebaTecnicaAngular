@@ -30,10 +30,15 @@
             </a>
         </li>
         <li>
-            <a [routerLink]="['/logout']" (click)="alternarMenu()">
-                <mat-icon aria-hidden="false" aria-label="Ícono de la página para cerrar sesión">logout</mat-icon>
-                <p>Cerrar sesión</p>
-            </a>
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menú del usuario" class="menu-usuario">
+                <mat-icon>more_vert</mat-icon> <span>Matías Gabriel Blanco Toledo</span>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                    <mat-icon aria-hidden="false" aria-label="Ícono de la página para cerrar sesión">logout</mat-icon>
+                    <span>Cerrar sesión</span>
+                </button>
+            </mat-menu>
         </li>
     </ul>
 </nav>
