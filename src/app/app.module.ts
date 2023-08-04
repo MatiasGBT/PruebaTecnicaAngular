@@ -21,6 +21,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { registerLocaleData } from '@angular/common';
 import localeEsAr from '@angular/common/locales/es-AR';
 import { FormsModule } from '@angular/forms';
+import { MatBadgeModule } from '@angular/material/badge';
 
 registerLocaleData(localeEsAr, 'es-AR');
 
@@ -46,7 +47,8 @@ registerLocaleData(localeEsAr, 'es-AR');
     MatFormFieldModule,
     MatInputModule,
     MatButtonToggleModule,
-    FormsModule
+    FormsModule,
+    MatBadgeModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'es-AR' },

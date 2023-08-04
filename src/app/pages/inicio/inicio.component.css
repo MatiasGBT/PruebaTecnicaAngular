@@ -22,7 +22,7 @@ section {
 
 @media (min-width: 1038px) {
     section {
-        height: auto;
+        min-height: 120vh;
     }
 
     .productos {

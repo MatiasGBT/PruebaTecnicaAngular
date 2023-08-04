@@ -51,7 +51,7 @@ header img {
 @media (min-width: 768px) {
     .botones-header {
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-end;
     }
 
     .input-buscar {
@@ -60,6 +60,8 @@ header img {
     
     .acordeon {
         width: 300px;
+        position: absolute;
+        left: 25px;
     }
     
     .acordeon-panel {
@@ -82,5 +84,12 @@ header img {
     
     .acordeon {
         width: 315px;
+    }
+}
+
+/*iPad Mini*/
+@media (width: 768px) and (height: 1024px) {
+    .acordeon {
+        width: 250px;
     }
 }

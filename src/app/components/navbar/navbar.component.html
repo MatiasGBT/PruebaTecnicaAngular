@@ -18,9 +18,8 @@
         </li>
         <li>
             <a [routerLink]="['/carrito']" (click)="alternarMenu()">
-                <mat-icon aria-hidden="false"
-                    aria-label="Ícono de la página del carrito de compras">shopping_cart</mat-icon>
-                <p>Carrito</p>
+                <mat-icon aria-hidden="false" aria-label="Ícono de la página del carrito de compras">shopping_cart</mat-icon>
+                <p matBadge="{{cantidadElementosCarrito}}" matBadgeColor="warn" [matBadgeHidden]="badgeOculta">Carrito</p>
             </a>
         </li>
         <li>

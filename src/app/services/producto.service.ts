@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { Producto } from '../models/producto';
 
@@ -9,6 +9,7 @@ const API_URL = 'https://static.compragamer.com/test/productos.json';
   providedIn: 'root'
 })
 export class ProductoService {
+  public eventoAgregarAlCarrito = new EventEmitter();
 
   constructor(private http: HttpClient) { }
 

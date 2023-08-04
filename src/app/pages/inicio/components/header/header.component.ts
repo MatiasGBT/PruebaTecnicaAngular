@@ -14,11 +14,12 @@ export class HeaderComponent {
   public subcategorias: Subcategoria[] = [];
   public subcategoriaSeleccionada: Subcategoria = {} as Subcategoria;
   public subcategoriaSeleccionadaExiste: boolean = false;
+  public productoBuscado: string = '';
+  public orden: string = '';
+  public imagenHeader: string = 'subcategoria_default.webp';
   @Output() eventoBuscarProducto = new EventEmitter<string>();
   @Output() eventoFiltrarPorSubcategoria = new EventEmitter<number>();
   @Output() eventoOrdenarPorPrecio = new EventEmitter<string>();
-  public productoBuscado: string = '';
-  public orden: string = '';
 
   constructor(private categoriaService: CategoriaService,
     private subcategoriaService: SubcategoriaService) {
@@ -31,8 +32,15 @@ export class HeaderComponent {
   }
 
   public buscarProducto(event: any): void {
-    if ((event.key === 'Enter' || event.keyCode == 13) && (this.productoBuscado.length >= 3 || this.productoBuscado.length == 0)) {
+    if ((event.key === 'Enter' || event.keyCode == 13) && this.productoBuscado.length >= 3) {
       this.eventoBuscarProducto.emit(this.productoBuscado);
+      this.subcategoriaSeleccionadaExiste = false;
+      this.imagenHeader = 'busqueda_default.webp';
+    }
+    if ((event.key === 'Enter' || event.keyCode == 13) && this.productoBuscado.length == 0) {
+      this.eventoBuscarProducto.emit(this.productoBuscado);
+      this.subcategoriaSeleccionadaExiste = false;
+      this.imagenHeader = 'subcategoria_default.webp';
     }
   }
 

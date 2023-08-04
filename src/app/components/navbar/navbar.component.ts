@@ -1,15 +1,26 @@
-import { Component, ElementRef, HostListener, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Renderer2, ViewChild, OnInit } from '@angular/core';
+import { ProductoService } from 'src/app/services/producto.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   public menuAbierto: boolean = false;
   @ViewChild("listaNav") listaNav!: ElementRef;
+  public cantidadElementosCarrito: number = 0;
+  public badgeOculta: boolean = true;
 
-  constructor(private renderer2: Renderer2) { }
+  constructor(private renderer2: Renderer2,
+    private productService: ProductoService) { }
+
+  ngOnInit(): void {
+    this.productService.eventoAgregarAlCarrito.subscribe(() => {
+      this.cantidadElementosCarrito++;
+      if (this.badgeOculta) this.badgeOculta = false;
+    })
+  }
 
   public alternarMenu(): void {
     const screenWidth = window.innerWidth;

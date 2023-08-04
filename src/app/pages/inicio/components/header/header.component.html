@@ -1,17 +1,11 @@
 <header>
     <img *ngIf="subcategoriaSeleccionadaExiste"
         [src]="'https://compragamer.net/categorias_demo/' + subcategoriaSeleccionada.imagen"
-        alt="Portada de los productos destacados">
-    <img *ngIf="!subcategoriaSeleccionadaExiste" ngSrc="../../../../../assets/imagenes/subcategoria_default.webp"
-        [alt]="'Portada de ' + subcategoriaSeleccionada.nombre" width="1200" height="160" priority>
+        alt="Portada de los productos destacados" width="1200" height="160">
+    <img *ngIf="!subcategoriaSeleccionadaExiste" src="../../../../../assets/imagenes/{{imagenHeader}}"
+        [alt]="'Portada de ' + subcategoriaSeleccionada.nombre" width="1200" height="160">
 
     <div class="botones-header">
-        <mat-form-field appearance="outline" class="input-buscar" subscriptSizing="dynamic">
-            <mat-label>Buscar</mat-label>
-            <input matInput [(ngModel)]="productoBuscado" placeholder="Teclado Mecanico Marvo KG945 RGB" (keyup)="buscarProducto($event)">
-            <mat-icon matSuffix>search</mat-icon>
-        </mat-form-field>
-
         <mat-accordion class="acordeon">
             <mat-expansion-panel class="acordeon-panel">
                 <mat-expansion-panel-header>
@@ -38,6 +32,12 @@
                 </mat-accordion>
             </mat-expansion-panel>
         </mat-accordion>
+
+        <mat-form-field appearance="outline" class="input-buscar" subscriptSizing="dynamic">
+            <mat-label>Buscar</mat-label>
+            <input matInput [(ngModel)]="productoBuscado" placeholder="Teclado Mecanico Marvo KG945 RGB" (keyup)="buscarProducto($event)">
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
 
         <mat-button-toggle-group name="fontStyle" aria-label="Font Style" class="botones-precio" [(ngModel)]="orden">
             <mat-button-toggle value="menor" (click)="ordenarProductos()">Precio <mat-icon>arrow_downward</mat-icon></mat-button-toggle>

@@ -11,5 +11,7 @@
     </div>
     <p class="precio">{{producto.precio | currency:'ARS$'}}</p>
 
-    <button mat-flat-button color="primary"><mat-icon>add_shopping_cart</mat-icon> Agregar al carrito</button>
+    <button (click)="agregarAlCarrito()">
+        <mat-icon>add_shopping_cart</mat-icon> Agregar al carrito
+    </button>
 </div>
