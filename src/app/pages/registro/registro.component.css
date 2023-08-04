@@ -1,0 +1,92 @@
+section {
+    padding: 75px 15px 15px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario-registro {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    width: 100%;
+}
+
+.formulario-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background: -webkit-linear-gradient(to right, var(--primary-color), var(--primary-gradient-color));
+    background: linear-gradient(to right, var(--primary-color), var(--primary-gradient-color));
+    padding: 25px;
+    font-family: Roboto;
+    border-radius: 10px 10px 0 0;
+}
+
+.formulario-registro mat-form-field {
+    width: 100%;
+}
+
+.formulario-cuerpo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    padding: 25px;
+    border-left: 2px solid rgba(0, 0, 0, 0.3);
+    border-right: 2px solid rgba(0, 0, 0, 0.3);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 10px 10px;
+}
+
+mat-hint, mat-error {
+    margin-top: 5px;
+}
+
+mat-hint {
+    font-size: .75rem;
+}
+
+.formulario-registro button {
+    background: var(--primary-color);
+    color: white;
+    font-size: 1rem;
+    font-family: 'Roboto';
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    padding: 7.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+}
+
+.formulario-registro button:hover {
+    background: var(--primary-gradient-color);
+    transition: .3s;
+}
+
+@media (min-width: 768px) {
+    section {
+        padding: 105px 25px 25px 25px;
+        min-height: 90vh;
+    }
+
+    .formulario-registro {
+        width: 60%;
+    }
+
+    mat-hint {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1038px) {
+    .formulario-registro {
+        width: 30%;
+    }
+}
