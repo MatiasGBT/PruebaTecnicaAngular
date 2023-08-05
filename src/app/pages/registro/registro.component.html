@@ -47,7 +47,7 @@
                 <mat-error *ngIf="formularioRegistro.controls['passwordConfirmacion'].invalid">{{obtenerErrorPassConfirmacion()}}</mat-error>
             </mat-form-field>
 
-            <button type="button">Registrarse</button>
+            <button type="submit" [disabled]="formularioRegistro.invalid" >Registrarse</button>
         </div>
     </form>
 </section>

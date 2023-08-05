@@ -70,6 +70,11 @@ mat-hint {
     transition: .3s;
 }
 
+.formulario-registro button:disabled {
+    background: grey;
+    cursor: not-allowed;
+}
+
 @media (min-width: 768px) {
     section {
         padding: 105px 25px 25px 25px;

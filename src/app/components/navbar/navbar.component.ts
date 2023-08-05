@@ -1,4 +1,5 @@
 import { Component, ElementRef, HostListener, Renderer2, ViewChild } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,8 @@ export class NavbarComponent {
   public menuAbierto: boolean = false;
   @ViewChild("listaNav") listaNav!: ElementRef;
 
-  constructor(private renderer2: Renderer2) { }
+  constructor(private renderer2: Renderer2,
+    public authService: AuthService) { }
 
   public alternarMenu(): void {
     const screenWidth = window.innerWidth;
@@ -34,5 +36,9 @@ export class NavbarComponent {
       this.menuAbierto = false;
       this.cerrarMenu();
     }
+  }
+
+  public cerrarSesion(): void {
+    this.authService.cerrarSesion();
   }
 }

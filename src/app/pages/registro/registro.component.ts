@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
-export class RegistroComponent {
+export class RegistroComponent implements OnInit {
   public formularioRegistro: FormGroup = new FormGroup({
     nombre: new FormControl(''),
     apellido: new FormControl(''),
@@ -17,7 +19,9 @@ export class RegistroComponent {
     passwordConfirmacion: new FormControl(''),
   });
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router) {
     this.formularioRegistro = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.maxLength(40)]],
       apellido: ['', [Validators.required, Validators.maxLength(40)]],
@@ -29,8 +33,24 @@ export class RegistroComponent {
     });
   }
 
+  ngOnInit() {
+    if (this.authService.usuarioEstaLogueado) {
+      this.router.navigate(['inicio']);
+    }
+  }
+
   public registrarUsuario(): void {
-    // TODO: Validación de form y registrar usuario en storage
+    if (!this.formularioRegistro.invalid) {
+      let usuario = {
+        'nombre': this.formularioRegistro.controls['nombre'].value,
+        'apellido': this.formularioRegistro.controls['apellido'].value,
+        'dni': this.formularioRegistro.controls['dni'].value,
+        'email': this.formularioRegistro.controls['email'].value,
+        'telefono': this.formularioRegistro.controls['telefono'].value,
+      }
+      this.authService.registrarse(usuario);
+      this.router.navigate(['/inicio']);
+    }
   }
   
   //#region Validaciones formulario
@@ -78,10 +98,10 @@ export class RegistroComponent {
 
   public obtenerErrorPassConfirmacion(): string {
     if (this.formularioRegistro.controls['passwordConfirmacion'].hasError('required')) {
-      return 'El campo contraseña es requerido';
+      return 'El campo repetir contraseña es requerido';
     }
     if (this.formularioRegistro.controls['passwordConfirmacion'].hasError('maxLength')) {
-      return 'El campo contraseña no puede superar los 18 carácteres';
+      return 'El campo repetir contraseña no puede superar los 18 carácteres';
     }
     return this.formularioRegistro.controls['passwordConfirmacion'].hasError('noCoinciden') ? 'Las contraseñas no coinciden' : '';
   }
