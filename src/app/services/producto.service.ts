@@ -10,6 +10,7 @@ const API_URL = 'https://static.compragamer.com/test/productos.json';
 })
 export class ProductoService {
   public eventoAgregarAlCarrito = new EventEmitter();
+  private productosAgregadosAlCarrito: number[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -33,5 +34,15 @@ export class ProductoService {
       map(response => response.filter(producto => producto.nombre.toLowerCase().includes(nombre.toLowerCase()))),
       catchError(ex => throwError(() => ex))
     );
+  }
+
+  public agregarAlCarrito(producto: Producto): void {
+    if (!this.estaEnElCarrito(producto)) {
+      this.productosAgregadosAlCarrito.push(producto.id_producto);
+    }
+  }
+
+  public estaEnElCarrito(producto: Producto): boolean {
+    return this.productosAgregadosAlCarrito.find(id => id == producto.id_producto) !== undefined;
   }
 }

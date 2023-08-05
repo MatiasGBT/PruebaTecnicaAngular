@@ -12,6 +12,7 @@ import { SubcategoriaService } from 'src/app/services/subcategoria.service';
 export class ProductoComponent implements OnInit {
   @Input() producto: Producto = {} as Producto;
   public subcategoria: Subcategoria = {} as Subcategoria;
+  public estaEnElCarrito: boolean = false;
 
   constructor(private productoService: ProductoService,
     private subcategoriaService: SubcategoriaService) {}
@@ -20,9 +21,15 @@ export class ProductoComponent implements OnInit {
     this.subcategoriaService.obtenerPorId(this.producto.id_subcategoria).subscribe(subcategoria => {
       if (subcategoria) this.subcategoria = subcategoria;
     });
+
+    if (this.productoService.estaEnElCarrito(this.producto)) {
+      this.estaEnElCarrito = true;
+    }
   }
 
   public agregarAlCarrito(): void {
     this.productoService.eventoAgregarAlCarrito.emit();
+    this.productoService.agregarAlCarrito(this.producto);
+    this.estaEnElCarrito = true;
   }
 }

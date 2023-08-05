@@ -5,10 +5,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('AppComponent', () => {
   beforeEach(() => TestBed.configureTestingModule({
-    imports: [RouterTestingModule, MatIconModule, MatMenuModule],
+    imports: [RouterTestingModule, MatIconModule, MatMenuModule, HttpClientModule],
     declarations: [AppComponent, NavbarComponent, FooterComponent]
   }));
 

@@ -51,6 +51,11 @@
     transition: .3s;
 }
 
+.producto button:disabled {
+    background: gray;
+    cursor: not-allowed;
+}
+
 @media (min-width: 768px) {
     .producto {
         height: 385px;
