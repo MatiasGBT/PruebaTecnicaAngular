@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener, Renderer2, ViewChild, OnInit } from '@angular/core';
 import { ProductoService } from 'src/app/services/producto.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,8 @@ export class NavbarComponent implements OnInit {
   public badgeOculta: boolean = true;
 
   constructor(private renderer2: Renderer2,
-    private productService: ProductoService) { }
+    private productService: ProductoService,
+    public authService: AuthService) { }
 
   ngOnInit(): void {
     this.productService.eventoAgregarAlCarrito.subscribe(() => {
@@ -45,5 +47,9 @@ export class NavbarComponent implements OnInit {
       this.menuAbierto = false;
       this.cerrarMenu();
     }
+  }
+
+  public cerrarSesion(): void {
+    this.authService.cerrarSesion();
   }
 }

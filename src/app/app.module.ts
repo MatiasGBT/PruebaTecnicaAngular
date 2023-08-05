@@ -22,6 +22,8 @@ import { registerLocaleData } from '@angular/common';
 import localeEsAr from '@angular/common/locales/es-AR';
 import { FormsModule } from '@angular/forms';
 import { MatBadgeModule } from '@angular/material/badge';
+import { RegistroComponent } from './pages/registro/registro.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 registerLocaleData(localeEsAr, 'es-AR');
 
@@ -32,7 +34,8 @@ registerLocaleData(localeEsAr, 'es-AR');
     FooterComponent,
     InicioComponent,
     ProductoComponent,
-    HeaderComponent
+    HeaderComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ registerLocaleData(localeEsAr, 'es-AR');
     MatInputModule,
     MatButtonToggleModule,
     FormsModule,
-    MatBadgeModule
+    MatBadgeModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'es-AR' },

@@ -22,18 +22,18 @@
                 <p matBadge="{{cantidadElementosCarrito}}" matBadgeColor="warn" [matBadgeHidden]="badgeOculta">Carrito</p>
             </a>
         </li>
-        <li>
+        <li *ngIf="!authService.usuarioEstaLogueado">
             <a [routerLink]="['/registro']" (click)="alternarMenu()">
                 <mat-icon aria-hidden="false" aria-label="Ícono de la página para registrarse">person_add</mat-icon>
                 <p>Registrarse</p>
             </a>
         </li>
-        <li>
+        <li *ngIf="authService.usuarioEstaLogueado">
             <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menú del usuario" class="menu-usuario">
-                <mat-icon>more_vert</mat-icon> <span>Matías Gabriel Blanco Toledo</span>
+                <mat-icon>more_vert</mat-icon> <span>{{authService.usuario.nombre}} {{authService.usuario.apellido}}</span>
             </button>
             <mat-menu #menu="matMenu">
-                <button mat-menu-item>
+                <button mat-menu-item (click)="cerrarSesion()">
                     <mat-icon aria-hidden="false" aria-label="Ícono de la página para cerrar sesión">logout</mat-icon>
                     <span>Cerrar sesión</span>
                 </button>
