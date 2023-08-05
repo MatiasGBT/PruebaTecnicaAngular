@@ -1,27 +1,36 @@
-# CompraGamer
+# Prueba Técnica Angular - CG
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.7.
+Repositorio con el código para la prueba técnica de Angular.  
+El proyecto fue realizado utilizando [Angular CLI](https://github.com/angular/angular-cli) v16.1.7.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Demo
 
-## Code scaffolding
+El proyecto está desplegado en Netlify. Se puede acceder a este mediante el siguiente link:
+[https://pruebatecnicacg.netlify.app/](https://pruebatecnicacg.netlify.app/).  
+También se puede desplegar localmente siguiendo la siguiente sección.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Desplegar localmente
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Para desplegar este proyecto, primero debes clonar este repositorio:  
+`git clone https://github.com/MatiasGBT/PruebaTecnicaAngular.git`  
 
-## Running unit tests
+Una vez clonado, debes ejecutar los siguientes comandos en el directorio del proyecto:
+- `npm i` o `npm install` - Para descargar todas las dependencias/módulos del proyecto.
+- `ng serve -o` - Para que el proyecto se ejecute. La flag "-o" es para que la página se abra inmediatamente en tu navegador predeterminado una vez compila. Esta bandera es opcional, si no la colocas debes navegar al siguiente link en tu navegador de preferencia (una vez que compile el proyecto): `http://localhost:4200/`.
+- El proyecto compilará cuando se vea lo siguiente en la terminal: `√ Compiled successfully.`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Características del proyecto  
+Se trata de un listado de productos provenientes de una API de ejemplo. Esta lista se puede filtrar por subcategorías, ordenar por mayor o menor precio, o buscar productos en base a un nombre.  
+Además de agregar los productos a un carrito, el usuario también tiene la capacidad de registrarse.  
+Una vez registrado, los datos del usuario (salvo la contraseña), son guardados en el almacenamiento local del navegador.  
+El usuario tiene la capacidad de cerrar la sesión una vez registrado.  
 
-## Running end-to-end tests
+El proyecto usa [Angular Material](https://material.angular.io/) versión 16.
+## ¿Qué se puede agregar al proyecto?  
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Si bien no se pedía en la consigna, lo común es que exista una página de carrito de compras en la que se pueda ver los productos agregados a dicho carrito, además de poder removerlos y finalizar la compra.  
+A su vez, me gustaría haber programado en inglés, pero decidí hacer el código en español debido a que los datos de la API venían en dicho idioma (quedaba muy extraño "subcategory.id_subcategoria" 😬).
+## Autor
+[@MatiasGBT](https://github.com/MatiasGBT) - [portfolio](https://matiasgbt.netlify.app/)
